@@ -12,8 +12,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-        with:
-          ref: main
       - name: Building Docker Insecure Acebook Image
         run: docker build --tag insecure-login:latest .
       - name: Launching the Insecure Acebook app
