@@ -2,6 +2,7 @@
 FROM python:3.9.6-slim-buster
 
 ENV FLASK_APP=login_form
+ENV SECRET_KEY=dev
 
 WORKDIR /app
 COPY . .
