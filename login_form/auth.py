@@ -1,7 +1,7 @@
 import functools
 
 from flask import (
-    Blueprint, flash, g, redirect, render_template, request, session, url_for, escape
+    Blueprint, flash, g, redirect, render_template, request, session, url_for
 )
 
 from login_form.db import get_db
