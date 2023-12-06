@@ -12,6 +12,6 @@ RUN pip3 install -e .
 
 RUN chmod +x scripts/*
 
-EXPOSE 5001
+EXPOSE 5000
 
 CMD ["./scripts/entrypoint.sh"]
