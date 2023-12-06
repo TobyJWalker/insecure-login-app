@@ -10,6 +10,7 @@ COPY . .
 RUN python3 -m venv venv
 RUN . venv/bin/activate
 RUN pip3 install -e .
+RUN pip3 install flask-wtf
 
 RUN chmod +x scripts/*
 

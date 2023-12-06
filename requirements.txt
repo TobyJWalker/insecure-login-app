@@ -5,4 +5,8 @@ seleniumbase==4.15.13
 setuptools==68.0.0
 Werkzeug==2.3.6
 bandit==1.7.5
-flask_WTF==1.2.1
+Flask_WTF==0.14.2
+itsdangerous==1.1.0
+Jinja2==2.10.1
+Werkzeug==0.15.5
+WTForms==3.1.1
