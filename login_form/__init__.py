@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_wtf.csrf import CSRFProtect
 
 def create_app(test_config=None):
     # create and configure the app
@@ -15,6 +16,9 @@ def create_app(test_config=None):
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
+
+    csrf = CSRFProtect()
+    csrf.init_app(app)
 
     # ensure the instance folder exists
     try:
