@@ -15,7 +15,7 @@ jobs:
       - name: Building Docker Insecure Acebook Image
         run: docker build --tag insecure-login:latest .
       - name: Launching the Insecure Acebook app
-        run: docker run -p 5000:5000 insecure-login
+        run: docker run -d -p 5000:5000 insecure-login
 
       - name: OWASP ZAP
         ### Swap the actions used if you want a more comprehensive DAST analysis of your app :)
