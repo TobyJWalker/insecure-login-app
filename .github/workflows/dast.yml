@@ -22,7 +22,7 @@ jobs:
       - name: OWASP ZAP
         ### Swap the actions used if you want a more comprehensive DAST analysis of your app :)
         # uses: zaproxy/action-full-scan@v0.3.0
-        uses: zaproxy/action-baseline@v0.6.1
+        uses: zaproxy/action-baseline@v0.10.0
         with:
           target: "http://localhost:5000"
           fail_action: false
