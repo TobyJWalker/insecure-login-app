@@ -7,10 +7,7 @@ ENV SECRET_KEY=dev
 WORKDIR /app
 COPY . .
 
-RUN python3 -m venv venv
-RUN . venv/bin/activate
-RUN pip3 install -e .
-RUN pip3 install flask-wtf
+RUN pip install -r requirements.txt
 
 RUN chmod +x scripts/*
 
