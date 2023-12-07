@@ -13,7 +13,7 @@ export FLASK_APP=login_form
 export SECRET_KEY=secret
 
 flask init-db
-flask run --host=0.0.0.0 --port=5001
+flask run --host=0.0.0.0
 ```
 
 You should now be able to browse the app at `http://localhost:5000`

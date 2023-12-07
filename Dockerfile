@@ -2,16 +2,15 @@
 FROM python:3.9.6-slim-buster
 
 ENV FLASK_APP=login_form
+ENV SECRET_KEY=dev
 
 WORKDIR /app
 COPY . .
 
-RUN python3 -m venv venv
-RUN . venv/bin/activate
-RUN pip3 install -e .
+RUN pip install -r requirements.txt
 
 RUN chmod +x scripts/*
 
-EXPOSE 5001
+EXPOSE 5000
 
 CMD ["./scripts/entrypoint.sh"]

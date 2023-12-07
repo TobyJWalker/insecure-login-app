@@ -1,5 +1,6 @@
 import os
 from flask import Flask
+from flask_wtf.csrf import CSRFProtect
 
 def create_app(test_config=None):
     # create and configure the app
@@ -7,6 +8,8 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY=os.environ.get('SECRET_KEY'),
         DATABASE=os.path.join(app.instance_path, 'login_form.sqlite'),
+        SESSION_COOKIE_SECURE=True,
+        SESSION_COOKIE_SAMESITE='Strict',
     )
 
     if test_config is None:
@@ -15,6 +18,9 @@ def create_app(test_config=None):
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
+
+    csrf = CSRFProtect()
+    csrf.init_app(app)
 
     # ensure the instance folder exists
     try:
@@ -35,7 +41,9 @@ def create_app(test_config=None):
 
     @app.after_request
     def add_security_headers(resp):
-        resp.headers['Content-Security-Policy']='default-src \'self\''
+        resp.headers['Content-Security-Policy']="default-src 'self'; frame-ancestors 'self'; form-action 'self'"
+        resp.headers['X-FRAME-OPTIONS'] = 'SAMEORIGIN'
+        resp.headers['X-Content-Type-Options'] = 'nosniff'
         return resp
 
     return app
