@@ -86,3 +86,11 @@ Method: ZAP
 Zap found that the session cookie did not have the SameSite attribute set. This can be used by attackers to carry out CSRF attacks.
 
 I have fixed this by setting the SameSite attribute to 'Strict' on the session cookie. This could also be changed to Lax.
+
+### 11. Debug Messages
+
+Method: Manual Scanning and ZAP
+
+The application is currently built to run in a development environment, and as such, debug messages are enabled. This can be used by attackers to find vulnerabilities in the application.
+
+Ensure that the application is running in a production environment, and that debug messages are disabled.
